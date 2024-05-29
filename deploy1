@@ -1,0 +1,7 @@
+#!/bin/bash
+
+npm run build
+
+scp -r ./dist/* root@101.37.149.30:/root/test/dist
+
+echo "搞定"
