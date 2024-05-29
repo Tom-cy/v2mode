@@ -45,14 +45,6 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
-    config.module
-      .rule('jsx')
-      .test(/\.jsx$/)
-      .use('babel-loader')
-      .loader('babel-loader')
-      .options({
-        presets: ['@babel/preset-env', '@babel/preset-react']
-      })
     config.plugin('html').tap((args) => {
       args[0].title = '测试table'
       return args
