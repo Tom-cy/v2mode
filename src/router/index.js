@@ -7,23 +7,28 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    children: [
-      {
-        path: 'login',
-        meta: {
-          title: '考生个人中心'
-        },
-        component: () => import('@/views/percenter/login')
-      },
-      {
-        path: 'register',
-        meta: {
-          title: '考生个人注册'
-        },
-        component: () => import('@/views/percenter/register')
-      }
-    ]
+    redirect: '/home'
   },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'login',
+  //       meta: {
+  //         title: '考生个人中心'
+  //       },
+  //       component: () => import('@/views/percenter/login')
+  //     },
+  //     {
+  //       path: 'register',
+  //       meta: {
+  //         title: '考生个人注册'
+  //       },
+  //       component: () => import('@/views/percenter/register')
+  //     }
+  //   ]
+  // },
   {
     path: '/home',
     component: () => import('@/views/Home')
@@ -36,7 +41,6 @@ const routes = [
     path: '/table1',
     component: () => import('@/views/TableForm/table1')
   },
-  
 
   {
     path: '/examregis',
