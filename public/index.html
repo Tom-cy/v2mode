@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <script>
+    <!-- <script>
       document.domain = 'chen1995.com'
-    </script>
+    </script> -->
   </head>
   <body>
     <noscript>
@@ -24,5 +24,27 @@
     <!-- <script>
       document.domain = 'chen1995.com'
     </script> -->
+
+    <script>
+      let parentOrigin = ''
+      window.addEventListener('message', (event) => {
+        if (event.data.action === 'setParentOrigin') {
+          parentOrigin = event.data.origin
+        }
+
+        if (
+          event.origin === parentOrigin &&
+          event.data.action === 'changeCSS'
+        ) {
+          // 创建一个 style 标签
+          const style = document.createElement('style')
+          style.textContent = event.data.css
+          document.head.appendChild(style)
+        }
+      })
+
+      // 向父页面发送消息（可选）
+      window.parent.postMessage('Iframe is loaded', '*')
+    </script>
   </body>
 </html>
