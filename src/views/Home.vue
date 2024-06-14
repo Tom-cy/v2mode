@@ -1,6 +1,9 @@
 
 <template>
-  <div class="tx-container">
+  <div class="Home">
+    <div id="son">
+      垃圾
+    </div>
     <div class="ces3">
       我是son
       我是son

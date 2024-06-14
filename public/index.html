@@ -28,6 +28,7 @@
     <script>
       let parentOrigin = ''
       window.addEventListener('message', (event) => {
+        console.log('子ifram-event', event);
         if (event.data.action === 'setParentOrigin') {
           parentOrigin = event.data.origin
         }
@@ -40,6 +41,8 @@
           const style = document.createElement('style')
           style.textContent = event.data.css
           document.head.appendChild(style)
+          console.log('document', document);
+          console.log('document', document.head);
         }
       })
 
